@@ -1,0 +1,24 @@
+<div class="container">
+    <form>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" [(ngModel)]="persona.nombre" id="nombre" name="nombre">
+        </div>
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" [(ngModel)]="persona.apellido" id="apellido" name="apellido">
+        </div>
+        <div class="mb-3">
+            <label for="edad" class="form-label">Edad</label>
+            <input type="number" [(ngModel)]="persona.edad" class="form-control" id="edad" name="edad">
+        </div>
+        <div class="mb-3">
+            <select name="miselect" [(ngModel)]="persona.tipoDni">
+                <option [ngValue]="t" *ngFor="let t of tipoDoc" selected>{{t.nombre}}</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="guardarPersona()">Guardar</button>
+        <button type="submit" class="btn btn-primary" (click)="cancelar()">Cancelar</button>
+    </form>
+</div>

@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-7">
+        <app-persona-alta *ngIf="formAlta" 
+            (onConfirmar)="actualizarListado()" 
+            (onCancelar)="mostrarFormAlta(false)">
+        </app-persona-alta>
+
+        <app-persona-modificar2 *ngIf="formMod" 
+            [id]="idSeleccionado" 
+            (onConfirmar)="actualizarListado()"
+            (onCancelar)="mostrarFormAlta(false)">
+        </app-persona-modificar2>
+    </div>
+
+    <div class="col-md-5">
+        <app-persona-listado [listado]="listado" 
+            (onAgregarPersona)="mostrarFormAlta(true)"
+            (onModificar)="mostrarFormModif($event)">
+            <!--Recibe el evento que es el ID-->
+        </app-persona-listado>
+    </div>
+</div>
